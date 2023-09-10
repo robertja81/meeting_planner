@@ -1,0 +1,27 @@
+{%  extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Meeting Planner!</h1>
+    <p>
+        This is a Django Application developed by Robert Anderson.</br>
+        It was developed off of the 'Django: Getting Started' course on Pluralsight.</br>
+        <em>Django:  Getting Started</em>
+        on <a href="https://www.pluralsight.com">
+        Pluralsight</a>
+    </p>
+
+    <h2>Meetings</h2>
+    <ul>
+        {% for meeting in meetings %}
+            <li>
+                <a href="{% url 'detail' meeting.id %}">
+                    {{ meeting.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Rooms</h2>
+        <a href="{%  url 'room_detail' %}">Rooms List</a>
+{% endblock %}
